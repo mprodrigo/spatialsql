@@ -3,9 +3,7 @@ Llama text to spatial SQL for PostGIS
 - https://huggingface.co/markrodrigo
 
 ### Architecture Diagram
-</br>
-TODO
-
+</br> TODO
 ### TESTING
 </br>
 Testing the PostGIS SQL from the LLM responses can be done in many ways. One approach is to use a Docker container and psql at the command line.
@@ -32,3 +30,10 @@ Testing the PostGIS SQL from the LLM responses can be done in many ways. One app
   - SELECT ST_AsText(ST_Centroid(geog)) As centroid FROM (select 'Polygon ((-3.6934636 40.4808785, -3.6933352 40.4811486, -3.6930125 40.4810598, -3.693141 40.4807897, -3.6934636 40.4808785))' :: geography geog) subquery;
   - SELECT ST_AsText(ST_Buffer(geog, 1000)) as buffer FROM (select 'Point(-8.7522658 41.3862664)' :: geography geog) subquery;
   - SELECT ST_Length(geog) As length FROM (select 'LINESTRING (-3.6976693 40.4263178, -3.6986082 40.4258729)' :: geography geog) subquery;
+ 
+  <p></p>
+  </br> 
+**Note** 
+  Possible databse "connection refused" issues can be alleviated with adding the following to the pg_hba.conf file created after first docker launch:
+  </br> listen_addresses = '*'
+  </br> local all all trust
