@@ -34,6 +34,6 @@ Testing the PostGIS SQL from the LLM responses can be done in many ways. One app
   <p></p>
   </br> 
 **Note** 
-  Possible databse "connection refused" issues can be alleviated with adding the following to the pg_hba.conf file created after first docker launch:
+  Possible database "connection refused" issues can be alleviated with adding the following to the pg_hba.conf file created after first docker launch:
   </br> listen_addresses = '*'
   </br> local all all trust
